@@ -16,14 +16,14 @@ MEMORY {
 	ram_800056c0 : ORIGIN = 0x800056c0, LENGTH = 24M /* text.s */
 	ram_80005600 : ORIGIN = 0x80005600, LENGTH = 24M /* extab.s */
 	ram_80005660 : ORIGIN = 0x80005660, LENGTH = 24M /* extabindex.s */
-	ram_802c3ea0 : ORIGIN = 0x802c3ea0, LENGTH = 24M
-	ram_802c40e0 : ORIGIN = 0x802c40e0, LENGTH = 24M
-	ram_802c4100 : ORIGIN = 0x802c4100, LENGTH = 24M
-	ram_802ea4e0 : ORIGIN = 0x802ea4e0, LENGTH = 24M
-	ram_803143a0 : ORIGIN = 0x803143a0, LENGTH = 24M /* bss not right address yet*/
-	ram_804844e0 : ORIGIN = 0x804844e0, LENGTH = 24M
-	ram_804867e0 : ORIGIN = 0x804867e0, LENGTH = 24M /* sbss not right address yet*/
-	ram_80488de0 : ORIGIN = 0x80488de0, LENGTH = 24M
+	ram_802c3ea0 : ORIGIN = 0x802c3ea0, LENGTH = 24M /* ctors.s ??? */
+	ram_802c40e0 : ORIGIN = 0x802c40e0, LENGTH = 24M /* dtors.s ??? */
+	ram_802c4100 : ORIGIN = 0x802c4100, LENGTH = 24M /* rodata.s ??? */
+	ram_802ea4e0 : ORIGIN = 0x802ea4e0, LENGTH = 24M /* data.s ??? */
+	ram_803143a0 : ORIGIN = 0x803143a0, LENGTH = 24M /* bss not right address yet */
+	ram_804844e0 : ORIGIN = 0x804844e0, LENGTH = 24M /* sdata.s ??? */
+	ram_804867e0 : ORIGIN = 0x804867e0, LENGTH = 24M /* sbss not right address yet */
+	ram_80488de0 : ORIGIN = 0x80488de0, LENGTH = 24M /* sdata2.s ??? */
 }
 
 __ram_80003100_start	=	ORIGIN(ram_80003100);
@@ -204,7 +204,7 @@ SECTIONS
   }>ram_803143a0 = 0xff
   __bss_size = SIZEOF(.ram803143a0);
   bss_mem_start = ADDR (.ram803143a0);
-  bss_mem_size = SIZEOF (.ram803143a0) + (0x17c8b8 - 0x00170130);
+  bss_mem_size = SIZEOF (.ram803143a0) + (0x17c8b8 - 0x00170130); /* + 0xc788 */
 
   temp9 = temp8 + Data5_Size;
   .ram804844e0 __ram_804844e0_start : AT (temp9) { *(.ram804844e0) . = ALIGN(1); } > ram_804844e0 = 0xff

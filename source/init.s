@@ -982,7 +982,7 @@ _rom_copy_info: # 0x80005544
 .globl _bss_init_info
 _bss_init_info: # 0x800055c8
 .long 0x803143A0, 0x00170130 # bss
-.long 0x804867E0, 0x000025F8
+.long 0x804867E0, 0x000025F8 # sbss
 .long 0x80490C40, 0x00000018
 .long 0x00000000, 0x00000000
 
