@@ -7,7 +7,7 @@ endif
 .PHONY: all
 
 
-SRCS = Text_0x80003100.s Text_0x800056c0.s Data_0x80005600.s Data_0x80005660.s Data_0x802c3ea0.s Data_0x802c40e0.s Data_0x802c4100.s Data_0x802ea4e0.s Data_0x804844e0.s Data_0x80488de0.s
+SRCS = init.s text.s extab.s extabindex.s Data_0x802c3ea0.s Data_0x802c40e0.s Data_0x802c4100.s Data_0x802ea4e0.s Data_0x804844e0.s Data_0x80488de0.s bss.s sbss.s
 OBJS = $(addprefix build/, $(SRCS:.s=.o))
 DEPS = $(addprefix build/, $(SRCS:.s=.d))
 DEPFLAGS = -MT $@ -MMD -MP -MF build/$*.d

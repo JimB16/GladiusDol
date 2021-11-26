@@ -148,5 +148,3 @@ string_align "Manage Memory Card"
 
 .incbin "./code/Data_0x802c4100.bin", 0x1ffe4, 0x802ea4e0 - 0x802e40e4
 
-
-# 0x13808

@@ -11,12 +11,11 @@ ENTRY(__start)
 
 MEMORY {
 
-	mainram	: ORIGIN = 0x02000000, LENGTH = 8M
 	ram_80000000 : ORIGIN = 0x80000000, LENGTH = 24M
-	ram_80003100 : ORIGIN = 0x80003100, LENGTH = 24M
-	ram_800056c0 : ORIGIN = 0x800056c0, LENGTH = 24M
-	ram_80005600 : ORIGIN = 0x80005600, LENGTH = 24M
-	ram_80005660 : ORIGIN = 0x80005660, LENGTH = 24M
+	ram_80003100 : ORIGIN = 0x80003100, LENGTH = 24M /* init.s */
+	ram_800056c0 : ORIGIN = 0x800056c0, LENGTH = 24M /* text.s */
+	ram_80005600 : ORIGIN = 0x80005600, LENGTH = 24M /* extab.s */
+	ram_80005660 : ORIGIN = 0x80005660, LENGTH = 24M /* extabindex.s */
 	ram_802c3ea0 : ORIGIN = 0x802c3ea0, LENGTH = 24M
 	ram_802c40e0 : ORIGIN = 0x802c40e0, LENGTH = 24M
 	ram_802c4100 : ORIGIN = 0x802c4100, LENGTH = 24M
@@ -205,7 +204,7 @@ SECTIONS
   }>ram_803143a0 = 0xff
   __bss_size = SIZEOF(.ram803143a0);
   bss_mem_start = ADDR (.ram803143a0);
-  bss_mem_size = SIZEOF (.ram803143a0) + 0x17c8b8;
+  bss_mem_size = SIZEOF (.ram803143a0) + (0x17c8b8 - 0x00170130);
 
   temp9 = temp8 + Data5_Size;
   .ram804844e0 __ram_804844e0_start : AT (temp9) { *(.ram804844e0) . = ALIGN(1); } > ram_804844e0 = 0xff
@@ -220,7 +219,7 @@ SECTIONS
   }>ram_804867e0 = 0xff
   __sbss_size = SIZEOF(.ram804867e0);
   sbss_mem_start = ADDR (.ram804867e0);
-  sbss_mem_size = SIZEOF (.ram804867e0) + 0x25F8;
+  sbss_mem_size = SIZEOF (.ram804867e0);
 
   temp10 = temp9 + Data6_Size;
   .ram80488de0 __ram_80488de0_start : AT (temp10) { *(.ram80488de0) . = ALIGN(1); } > ram_80488de0 = 0xff

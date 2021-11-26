@@ -1,0 +1,36 @@
+
+.section .ram80005660, "ax"
+
+# 0x80005660
+.long 0x802ADE24
+.long 0x000000BC
+.long 0x80005600
+
+# 0x8000566c
+.long 0x802ADEE0
+.long 0x00000078
+.long 0x80005608
+
+# 0x80005678
+.long 0x802ADF58
+.long 0x000000FC
+.long 0x80005610
+
+# 0x80005684
+.long 0x802AE054
+.long 0x000000B8
+.long 0x80005628
+
+# 0x80005690
+.long 0x802AE10C
+.long 0x00000104
+.long 0x80005630
+
+# 0x8000569c
+.long 0x80005660
+.long 0x8000569C
+.long 0x802ADE24
+.long 0x000003EC
+
+
+.align 5, 0
